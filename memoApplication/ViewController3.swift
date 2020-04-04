@@ -10,9 +10,18 @@ import UIKit
 
 class ViewController3: UIViewController {
 
+    @IBAction func BackToVC1(_ sender: UIButton) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    @IBOutlet weak var tit: UITextField!
+    @IBOutlet weak var content: UITextView!
+    var detailData: memo = memo(Title: "", Content: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tit.text = detailData.Title
+        content.text = detailData.Content
         // Do any additional setup after loading the view.
     }
     

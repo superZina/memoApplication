@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 struct memo{
     var Title: String?
     var Content: String?
@@ -22,9 +23,8 @@ struct memo{
     memo(Title: "메모1",Content: "1111111111111")
     ]
 
-class ViewController: UITableViewController{
+class ViewController: UIViewController{
     
-
     @IBOutlet weak var memoTable: UITableView!
     //nav바 버튼
     
@@ -41,9 +41,15 @@ class ViewController: UITableViewController{
     override func viewWillAppear(_ animated: Bool) {
         self.memoTable.reloadData()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail"{
+            (segue.destination as! ViewController3).detailData = memoList[(self.memoTable.indexPathForSelectedRow)!.row]
+        }
+    }
 
 }
 
+extension ViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memoList.count
     }
@@ -56,4 +62,8 @@ class ViewController: UITableViewController{
         cell.content.preferredMaxLayoutWidth = 240
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "detail", sender: nil)
+    }
+}
 

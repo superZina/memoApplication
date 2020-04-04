@@ -19,15 +19,15 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="memoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memoCell" id="txg-Pl-0Kj" customClass="memoCell" customModule="memoApplication" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="memoCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memoCell" id="2eb-LE-tEB" customClass="memoCell" customModule="memoApplication" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="txg-Pl-0Kj" id="LX7-9a-u0P">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2eb-LE-tEB" id="0Yl-6g-ENB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="hc1-vE-HAx" kind="show" id="Z6X-vv-Osv"/>
+                                            <segue destination="hc1-vE-HAx" kind="show" identifier="detail" id="pe8-7U-zcN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -117,14 +117,52 @@
                     <view key="view" contentMode="scaleToFill" id="5ob-u8-hnx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSb-da-ue4">
+                                <rect key="frame" x="20" y="218" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tpx-Nl-U1S">
+                                <rect key="frame" x="20" y="372" width="374" height="87"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-42-wat">
+                                <rect key="frame" x="184" y="559" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="BackToVC1:" destination="hc1-vE-HAx" eventType="touchUpInside" id="9mV-16-wod"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="aSb-da-ue4" secondAttribute="trailing" constant="20" id="7r9-Xz-QbF"/>
+                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="bottom" secondItem="xYq-42-wat" secondAttribute="bottom" constant="273" id="MiT-P2-FEM"/>
+                            <constraint firstItem="Tpx-Nl-U1S" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="20" id="OB8-7H-SGH"/>
+                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="Tpx-Nl-U1S" secondAttribute="trailing" constant="20" id="VKZ-lC-Jog"/>
+                            <constraint firstItem="Tpx-Nl-U1S" firstAttribute="top" secondItem="aSb-da-ue4" secondAttribute="bottom" constant="120" id="Zoe-Nz-ItF"/>
+                            <constraint firstItem="aSb-da-ue4" firstAttribute="top" secondItem="2JF-JH-Qh4" secondAttribute="top" constant="130" id="f74-vY-pN6"/>
+                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="xYq-42-wat" secondAttribute="trailing" constant="148" id="pib-CO-mtw"/>
+                            <constraint firstItem="xYq-42-wat" firstAttribute="top" secondItem="Tpx-Nl-U1S" secondAttribute="bottom" constant="100" id="tmr-jk-NEG"/>
+                            <constraint firstItem="aSb-da-ue4" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="20" id="vLE-Xu-ZZY"/>
+                            <constraint firstItem="xYq-42-wat" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="184" id="yiX-Ap-R9b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2JF-JH-Qh4"/>
                     </view>
                     <navigationItem key="navigationItem" id="oMn-2O-PuD"/>
+                    <connections>
+                        <outlet property="content" destination="Tpx-Nl-U1S" id="WGU-Dt-YB6"/>
+                        <outlet property="tit" destination="aSb-da-ue4" id="ife-pT-ksN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gyf-sT-yz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1787" y="487"/>
+            <point key="canvasLocation" x="1786.9565217391305" y="486.83035714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uDY-zf-NhQ">
