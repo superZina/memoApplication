@@ -19,15 +19,15 @@ struct memo{
     }
 }
 
-    var memoList: [memo] = [
-    memo(Title: "메모1",Content: "1111111111111")
-    ]
+   
 
-class ViewController: UIViewController{
+class ViewController: UIViewController, SaveDataDelegate, EditDataDelegate{
     
     @IBOutlet weak var memoTable: UITableView!
     //nav바 버튼
-    
+    var memoList: [memo] = [
+       memo(Title: "메모1",Content: "1111111111111")
+       ]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -42,9 +42,23 @@ class ViewController: UIViewController{
         self.memoTable.reloadData()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "add"{
+        let destination = segue.destination as! ViewController2
+            destination.delegate = self
+        }
         if segue.identifier == "detail"{
             (segue.destination as! ViewController3).detailData = memoList[(self.memoTable.indexPathForSelectedRow)!.row]
+            let destination = segue.destination as! ViewController3
+            destination.delegate = self
         }
+    }
+    func saveData(data saveData:memo){
+        memoList.append(saveData)
+        memoTable.reloadData()
+    }
+    func editData(data editData:memo){
+        memoList[(self.memoTable.indexPathForSelectedRow)!.row] = editData
+        memoTable.reloadData()
     }
 
 }

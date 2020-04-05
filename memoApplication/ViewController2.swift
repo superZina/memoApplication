@@ -8,14 +8,20 @@
 
 import UIKit
 
+protocol SaveDataDelegate:class {
+    func saveData(data saveData:memo)
+}
+
 class ViewController2: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
+    var delegate:SaveDataDelegate?
     
     @IBOutlet weak var tit: UITextField!
     @IBOutlet weak var Content: UITextView!
     
     @IBAction func BackToVC1(_ sender: UIButton) {
-        memoList.append(memo(Title: tit.text, Content: Content.text))
+        var data: memo = memo(Title: self.tit.text, Content: self.Content.text)
+        delegate?.saveData(data: data)
         _ = navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {

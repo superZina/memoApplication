@@ -8,21 +8,34 @@
 
 import UIKit
 
+protocol EditDataDelegate {
+    func editData(data editData:memo)
+}
+
 class ViewController3: UIViewController {
 
-    @IBAction func BackToVC1(_ sender: UIButton) {
-        _ = navigationController?.popViewController(animated: true)
-    }
+    var delegate:EditDataDelegate?
+    
+   
     @IBOutlet weak var tit: UITextField!
     @IBOutlet weak var content: UITextView!
     var detailData: memo = memo(Title: "", Content: "")
+    @IBAction func BackToVC1(_ sender: UIButton) {
+           detailData.Title = self.tit.text
+           detailData.Content = self.content.text
+           delegate?.editData(data: detailData)
+           _ = navigationController?.popViewController(animated: true)
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
         tit.text = detailData.Title
         content.text = detailData.Content
-        // Do any additional setup after loading the view.
     }
     
 

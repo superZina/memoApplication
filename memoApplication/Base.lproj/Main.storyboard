@@ -45,7 +45,7 @@
                     <navigationItem key="navigationItem" id="zh4-3s-HmI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="V1P-FR-xe9">
                             <connections>
-                                <segue destination="HPT-hC-zJN" kind="show" id="ozS-Ai-u8N"/>
+                                <segue destination="HPT-hC-zJN" kind="show" identifier="add" id="ozS-Ai-u8N"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -72,13 +72,13 @@
                                     <action selector="BackToVC1:" destination="HPT-hC-zJN" eventType="touchUpInside" id="9pc-tO-whR"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="제목을 입력해 주세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLs-k4-csP">
-                                <rect key="frame" x="20" y="187" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해 주세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLs-k4-csP">
+                                <rect key="frame" x="20" y="168" width="374" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="내용을 입력해주세요" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9yb-Z3-M5f">
-                                <rect key="frame" x="20" y="213" width="374" height="128"/>
+                                <rect key="frame" x="20" y="210" width="374" height="134.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -87,16 +87,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="WLs-k4-csP" firstAttribute="top" secondItem="NBZ-hq-nMc" secondAttribute="top" constant="80" id="13M-77-Kig"/>
                             <constraint firstItem="NBZ-hq-nMc" firstAttribute="bottom" secondItem="RWO-Jd-HUG" secondAttribute="bottom" constant="216" id="38c-bW-lS3"/>
-                            <constraint firstItem="NBZ-hq-nMc" firstAttribute="trailing" secondItem="WLs-k4-csP" secondAttribute="trailing" constant="20" id="JLT-ue-MyD"/>
-                            <constraint firstItem="9yb-Z3-M5f" firstAttribute="leading" secondItem="NBZ-hq-nMc" secondAttribute="leading" constant="20" id="NJb-7G-fXD"/>
-                            <constraint firstItem="NBZ-hq-nMc" firstAttribute="trailing" secondItem="9yb-Z3-M5f" secondAttribute="trailing" constant="20" id="Pin-9k-HbC"/>
-                            <constraint firstItem="9yb-Z3-M5f" firstAttribute="top" secondItem="WLs-k4-csP" secondAttribute="bottom" constant="36" id="YFX-5m-yCg"/>
-                            <constraint firstItem="WLs-k4-csP" firstAttribute="leading" secondItem="NBZ-hq-nMc" secondAttribute="leading" constant="20" id="mtb-2s-BE9"/>
-                            <constraint firstItem="RWO-Jd-HUG" firstAttribute="top" relation="lessThanOrEqual" secondItem="9yb-Z3-M5f" secondAttribute="bottom" constant="275" id="opV-Pj-52y"/>
+                            <constraint firstItem="RWO-Jd-HUG" firstAttribute="top" relation="lessThanOrEqual" secondItem="9yb-Z3-M5f" secondAttribute="bottom" constant="271.5" id="6Uv-Gt-AdD"/>
+                            <constraint firstItem="NBZ-hq-nMc" firstAttribute="trailing" secondItem="9yb-Z3-M5f" secondAttribute="trailing" constant="20" id="7Uy-S5-J9L"/>
+                            <constraint firstItem="9yb-Z3-M5f" firstAttribute="top" secondItem="WLs-k4-csP" secondAttribute="bottom" constant="20" id="RSx-qC-RbN"/>
+                            <constraint firstItem="9yb-Z3-M5f" firstAttribute="leading" secondItem="NBZ-hq-nMc" secondAttribute="leading" constant="20" id="d5o-gz-8Xo"/>
+                            <constraint firstItem="NBZ-hq-nMc" firstAttribute="trailing" secondItem="WLs-k4-csP" secondAttribute="trailing" constant="20" id="ngU-3p-czD"/>
+                            <constraint firstItem="WLs-k4-csP" firstAttribute="leading" secondItem="NBZ-hq-nMc" secondAttribute="leading" constant="20" id="oka-8Q-EPv"/>
                             <constraint firstItem="NBZ-hq-nMc" firstAttribute="trailing" secondItem="RWO-Jd-HUG" secondAttribute="trailing" constant="181" id="wU7-Kn-ocu"/>
                             <constraint firstItem="RWO-Jd-HUG" firstAttribute="leading" secondItem="NBZ-hq-nMc" secondAttribute="leading" constant="181" id="yQc-ns-QYr"/>
-                            <constraint firstItem="WLs-k4-csP" firstAttribute="top" secondItem="NBZ-hq-nMc" secondAttribute="top" constant="99" id="yyA-u5-Lyv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NBZ-hq-nMc"/>
                     </view>
@@ -118,38 +118,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSb-da-ue4">
-                                <rect key="frame" x="20" y="218" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="제목을 입력해주세요" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aSb-da-ue4">
+                                <rect key="frame" x="20" y="168" width="374" height="22"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tpx-Nl-U1S">
-                                <rect key="frame" x="20" y="372" width="374" height="87"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-42-wat">
-                                <rect key="frame" x="184" y="559" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYq-42-wat">
+                                <rect key="frame" x="184" y="559" width="82" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="BackToVC1:" destination="hc1-vE-HAx" eventType="touchUpInside" id="9mV-16-wod"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tpx-Nl-U1S">
+                                <rect key="frame" x="20" y="210" width="374" height="104.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="aSb-da-ue4" secondAttribute="trailing" constant="20" id="7r9-Xz-QbF"/>
+                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="aSb-da-ue4" secondAttribute="trailing" constant="20" id="BZc-an-Og5"/>
+                            <constraint firstItem="Tpx-Nl-U1S" firstAttribute="top" secondItem="aSb-da-ue4" secondAttribute="bottom" constant="20" id="HgN-lj-ILG"/>
                             <constraint firstItem="2JF-JH-Qh4" firstAttribute="bottom" secondItem="xYq-42-wat" secondAttribute="bottom" constant="273" id="MiT-P2-FEM"/>
-                            <constraint firstItem="Tpx-Nl-U1S" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="20" id="OB8-7H-SGH"/>
-                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="Tpx-Nl-U1S" secondAttribute="trailing" constant="20" id="VKZ-lC-Jog"/>
-                            <constraint firstItem="Tpx-Nl-U1S" firstAttribute="top" secondItem="aSb-da-ue4" secondAttribute="bottom" constant="120" id="Zoe-Nz-ItF"/>
-                            <constraint firstItem="aSb-da-ue4" firstAttribute="top" secondItem="2JF-JH-Qh4" secondAttribute="top" constant="130" id="f74-vY-pN6"/>
+                            <constraint firstItem="xYq-42-wat" firstAttribute="top" relation="lessThanOrEqual" secondItem="Tpx-Nl-U1S" secondAttribute="bottom" constant="244.5" id="Wk4-Hx-OBR"/>
+                            <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="Tpx-Nl-U1S" secondAttribute="trailing" constant="20" id="oza-cX-7Gl"/>
                             <constraint firstItem="2JF-JH-Qh4" firstAttribute="trailing" secondItem="xYq-42-wat" secondAttribute="trailing" constant="148" id="pib-CO-mtw"/>
-                            <constraint firstItem="xYq-42-wat" firstAttribute="top" secondItem="Tpx-Nl-U1S" secondAttribute="bottom" constant="100" id="tmr-jk-NEG"/>
-                            <constraint firstItem="aSb-da-ue4" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="20" id="vLE-Xu-ZZY"/>
+                            <constraint firstItem="aSb-da-ue4" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="20" id="rpL-Q1-y4o"/>
+                            <constraint firstItem="aSb-da-ue4" firstAttribute="top" secondItem="2JF-JH-Qh4" secondAttribute="top" constant="80" id="uMo-cY-dii"/>
+                            <constraint firstItem="Tpx-Nl-U1S" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="20" id="vqV-jr-9db"/>
                             <constraint firstItem="xYq-42-wat" firstAttribute="leading" secondItem="2JF-JH-Qh4" secondAttribute="leading" constant="184" id="yiX-Ap-R9b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2JF-JH-Qh4"/>
