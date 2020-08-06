@@ -20,9 +20,9 @@ class ViewController2: UIViewController, UITextFieldDelegate, UITextViewDelegate
     @IBOutlet weak var Content: UITextView!
     
     @IBAction func BackToVC1(_ sender: UIButton) {
-        var data: memo = memo(Title: self.tit.text, Content: self.Content.text)
+        var data: memo = memo(Title: self.tit.text!, Content: self.Content.text)
         delegate?.saveData(data: data)
-        _ = navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class ViewController2: UIViewController, UITextFieldDelegate, UITextViewDelegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if(string == "\n"){
             textField.resignFirstResponder()
-        }else{}
+        }
         return true
     }
     //done을 누르면 키보드 사라짐 : textView
@@ -71,16 +71,4 @@ class ViewController2: UIViewController, UITextFieldDelegate, UITextViewDelegate
         return true
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
